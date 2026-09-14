@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "relay_arduino")(type "KiCad")(uri "${KIPRJMOD}/relay_arduino.kicad_sym")(options "")(descr ""))
+)
