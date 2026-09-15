@@ -1,8 +1,16 @@
 # PCB Heated Soldering Bed
 
+<p align="center">
+  <img src="Media/Completed_view.jpg" alt="Finished heated soldering bed" width="800">
+</p>
+
 Custom PCB based heating bed for PCB assembly and solder reflow.
 
-The system uses an Arduino Nano to control a relay that switches a 220V heating element, monitor temperature with an NTC thermistor, control a cooling fan, and provide a simple OLED interface.
+The system uses an Arduino Nano to control a relay that powers a resistive heating plate, monitor temperature with an NTC thermistor, control a cooling fan, and provide a simple OLED interface.
+
+Different buttons provide the user an easy way to navigate through the different menus available in the screen. The reflow profile can be modified, create a new one, power the fan or leave it in automatic mode... The main lever powers the heating element, initiating the reflow process. 
+
+To avoid melting the internals, the heating element was secured with 4 x M4 bolts capable of disipating the heat to the lower part of the assembly. The main structure consists of 6 panels total, secured together with screws and threaded inserts.
 
 ---
 
@@ -50,28 +58,21 @@ The system uses an Arduino Nano to control a relay that switches a 220V heating 
 
 ---
 
-## Finished Soldering Bed
-
-<p align="center">
-  <img src="Media/Completed_view.jpg" alt="Finished heated soldering bed" width="700">
-</p>
-
----
-
 ## Schematic & Wiring
 
 <table>
 <tr>
-<td width="65%" align="center">
+<td width="50%" align="center" valign="top">
 
-**Schematic**
+<b>Schematic</b><br><br>
 
-<img src="Media/Heating_Bed.pdf" alt="Heating bed schematic" width="100%">
+<img src="Media/Schematic.png" alt="Heating bed schematic" width="100%">
 
 </td>
-<td width="35%" align="center">
 
-**Wiring**
+<td width="50%" align="center" valign="top">
+
+<b>Internals / Wiring</b><br><br>
 
 <img src="Media/Internals.jpg" alt="Heating bed wiring" width="100%">
 
@@ -83,21 +84,17 @@ The system uses an Arduino Nano to control a relay that switches a 220V heating 
 
 ## Reflow Profile
 
-The firmware implements a three-stage Sn63Pb37 reflow profile.
-
 | Stage | Target | Duration |
 |---|---:|---:|
 | Stage 1 | 150 °C | 60 s |
 | Stage 2 | 180 °C | 60 s |
 | Stage 3 | 210 °C | 30 s |
 
-The setpoint is ramped at approximately **1 °C/s**.
+Setpoint ramp: **1 °C/s**
 
 ---
 
 ## Reflow Test
-
-The real temperature profile was measured using the NTC and compared with the theoretical profile.
 
 <p align="center">
   <img src="Media/Reflow_testing.jpg" alt="Theoretical vs real reflow temperature profile" width="800">
@@ -108,13 +105,11 @@ The real temperature profile was measured using the NTC and compared with the th
 | Theory | Target temperature profile |
 | Real | Temperature measured during the test |
 
-The difference between the two profiles is mainly related to the thermal inertia of the heating bed, heater power, heat losses, sensor position and control response.
+The difference is mainly caused by thermal inertia, heater power, heat losses, sensor position, and control response.
 
 ---
 
 ## Temperature Control
-
-The NTC is read through an analog input and converted to temperature using the thermistor parameters below.
 
 | Parameter | Value |
 |---|---:|
